@@ -1,19 +1,22 @@
 const Header = (title, date, temp) => {
 
+  //creating elements
   const headerDiv = document.createElement('div')
   const datSpan = document.createElement('span')
   const heaTitle = document.createElement('h1')
   const temSpan = document.createElement('span')
 
+  //adding classes
   headerDiv.classList.add('header')
   datSpan.classList.add('date')
   temSpan.classList.add('temp')
 
+  //adding to parent element
   headerDiv.appendChild(datSpan)
   headerDiv.appendChild(heaTitle)
   headerDiv.appendChild(temSpan)
 
-
+  //assigning textcontent
   datSpan.textContent = date
   heaTitle.textContent = title
   temSpan.textContent = temp
@@ -35,9 +38,8 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
   
-  
+  //callback
   const finHea = Header("Lambda Times", "JANUARY 6, 2021", "26\u00B0")
-  console.log(finHea)
   document.querySelector(selector).append(finHea)
   // TASK 2
   // ---------------------

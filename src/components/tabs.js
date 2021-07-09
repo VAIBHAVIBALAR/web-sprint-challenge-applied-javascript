@@ -2,10 +2,12 @@ import axios from "axios"
 import { response } from "msw"
 
 const Tabs = (topics) => {
-
+  
+  //creating element
   const topDiv = document.createElement('div')
   topDiv.classList.add('topics')
-
+  
+  //applying array method to form div elements
   topics.forEach(item => {
     const tDiv = document.createElement('div')
     tDiv.classList.add('tab')
@@ -31,12 +33,14 @@ const Tabs = (topics) => {
 }
 
 const tabsAppender = (selector) => {
+
+  //getting data from API
   axios.get('http://localhost:5000/api/topics')
   .then(response => {
-    console.log(response.data)
-    const tabs  = Tabs(response.data.topics)
-    console.log(tabs)
-    document.querySelector(selector).append(tabs)
+       console.log(response.data)
+       //fetching the topics array from object and passing it to Tabs function 
+        const tabs  = Tabs(response.data.topics)
+       document.querySelector(selector).append(tabs)
   })
   .catch(err => console.log(err.message))
   .finally(() => console.log('done'))
